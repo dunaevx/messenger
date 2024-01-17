@@ -1,0 +1,301 @@
+<html>
+<head>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 25%;
+      background-color: #ffffff;
+      border-right: 1px solid #e0e0e0;
+      overflow-y: scroll;
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+    }
+
+    .sidebar-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-image: url("onmessenger-logo.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .sidebar-search {
+      flex: 1;
+      margin-left: 10px;
+      border: none;
+      outline: none;
+      padding: 10px;
+      border-radius: 20px;
+      background-color: #f0f0f0;
+    }
+
+    .sidebar-search::placeholder {
+      color: #a0a0a0;
+    }
+
+    .sidebar-list {
+      list-style: none;
+    }
+
+    .sidebar-item {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      cursor: pointer;
+    }
+
+    .sidebar-item:hover {
+      background-color: #f0f0f0;
+    }
+
+    .sidebar-item.active {
+      background-color: #e0e0e0;
+    }
+
+    .sidebar-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-image: url("user-avatar.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .sidebar-info {
+      flex: 1;
+      margin-left: 10px;
+    }
+
+    .sidebar-name {
+      font-weight: bold;
+      font-size: 16px;
+      color: #000000;
+    }
+
+    .sidebar-message {
+      font-size: 14px;
+      color: #a0a0a0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .sidebar-time {
+      font-size: 12px;
+      color: #a0a0a0;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content-header {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .content-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-image: url("user-avatar.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .content-name {
+      flex: 1;
+      margin-left: 10px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #000000;
+    }
+
+    .content-status {
+      font-size: 14px;
+      color: #a0a0a0;
+    }
+
+    .content-icon {
+      width: 20px;
+      height: 20px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .content-body {
+      flex: 1;
+      padding: 15px;
+      overflow-y: scroll;
+    }
+
+    .content-message {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 10px;
+    }
+
+    .content-message:last-child {
+      margin-bottom: 0;
+    }
+
+    .content-bubble {
+      max-width: 60%;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 14px;
+      color: #ffffff;
+    }
+
+    .content-bubble.sent {
+      margin-left: auto;
+      background-color: #0084ff;
+    }
+
+    .content-bubble.received {
+      margin-right: auto;
+      background-color: #e0e0e0;
+      color: #000000;
+    }
+
+    .content-time {
+      margin-left: 10px;
+      font-size: 12px;
+      color: #a0a0a0;
+    }
+
+    .content-footer {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .content-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 10px;
+      border-radius: 20px;
+      background-color: #f0f0f0;
+    }
+
+    .content-input::placeholder {
+      color: #a0a0a0;
+    }
+
+    .content-button {
+      width: 40px;
+      height: 40px;
+      margin-left: 10px;
+      border: none;
+      outline: none;
+      border-radius: 50%;
+      background-color: #0084ff;
+      cursor: pointer;
+    }
+
+    .content-button-icon {
+      width: 20px;
+      height: 20px;
+      fill: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo"></div>
+        <input type="text" class="sidebar-search" placeholder="Search...">
+      </div>
+      <ul class="sidebar-list">
+        <li class="sidebar-item active">
+          <div class="sidebar-avatar"></div>
+          <div class="sidebar-info">
+            <div class="sidebar-name">John Doe</div>
+            <div class="sidebar-message">Hi, how are you?</div>
+          </div>
+          <div class="sidebar-time">12:34</div>
+        </li>
+        <li class="sidebar-item">
+          <div class="sidebar-avatar"></div>
+          <div class="sidebar-info">
+            <div class="sidebar-name">Jane Smith</div>
+            <div class="sidebar-message">Check this out!</div>
+          </div>
+          <div class="sidebar-time">11:11</div>
+        </li>
+        <li class="sidebar-item">
+          <div class="sidebar-avatar"></div>
+          <div class="sidebar-info">
+            <div class="sidebar-name">Bob Lee</div>
+            <div class="sidebar-message">Are you there?</div>
+          </div>
+          <div class="sidebar-time">10:10</div>
+        </li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="content-header">
+        <div class="content-avatar"></div>
+        <div class="content-name">John Doe</div>
+        <div class="content-status">Online</div>
+        <img src="phone-icon.png" class="content-icon">
+        <img src="video-icon.png" class="content-icon">
+        <img src="more-icon.png" class="content-icon">
+      </div>
+      <div class="content-body">
+        <div class="content-message received">
+          <div class="content-bubble">Hello, this is John.</div>
+          <div class="content-time">12:30</div>
+        </div>
+        <div class="content-message sent">
+          <div class="content-bubble">Hi John, this is a demo of the UI UX web design for your messenger app.</div>
+          <div class="content-time">12:31</div>
+        </div>
+        <div class="content-message received">
+          <div class="content-bubble">Wow, this looks amazing! I love the design and the colors.</div>
+          <div class="content-time">12:32</div>
+        </div>
+        <div class="content-message sent">
+          <div class="content-bubble">Thank you, I'm glad you like it. 😊</div>
+          <div class="content-time">12:33</div>
+        </div>
+      </div>
+      <div class="content-footer">
+        <input type="text" class="content-input" placeholder="Type a message...">
+        <button class="content-button">
+          <svg class="content-button-icon" viewBox="0 0 24 24">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
